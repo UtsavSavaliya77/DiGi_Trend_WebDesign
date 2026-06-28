@@ -1,0 +1,9 @@
+Font update applied:
+
+- app/layout.tsx imports Syne and Inter from next/font/google.
+- Inter is applied to the body using inter.className.
+- CSS variables are mounted on <html>: --font-inter-next and --font-syne-next.
+- app/globals.css maps body/default text to Inter.
+- h1, h2, h3, h4, h5, h6 and .font-heading/.font-syne use Syne with !important to prevent component overrides.
+- Tailwind utilities available: font-heading, font-syne, font-inter, font-sans.
+- Actual heading tags across app/ and components/ also include font-heading classes.

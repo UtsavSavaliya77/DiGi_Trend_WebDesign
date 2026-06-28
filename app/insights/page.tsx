@@ -1,0 +1,8 @@
+import type { Metadata } from "next";
+import { ArticleCard } from "@/components/cards";
+import { FinalCta } from "@/components/final-cta";
+import { Reveal } from "@/components/reveal";
+import { Container, PageHero, PrimaryButton, SecondaryButton, SectionHeading, Tag } from "@/components/ui";
+import { articles } from "@/data/site";
+export const metadata:Metadata={title:"Branding, Website & Digital Growth Insights",description:"Practical insights on branding, website design, social media, marketing, automation and business growth from DiGi Trend.",alternates:{canonical:"/insights"}};
+export default function InsightsPage(){return <><PageHero eyebrow="Insights" title={<>Ideas for building a stronger brand and a <span className="text-red-300">smarter business.</span></>} description="Practical thinking on branding, websites, social media, technology and digital growth."><PrimaryButton href="/book-demo">Discuss Your Brand</PrimaryButton><SecondaryButton href="/services" inverse>Explore Services</SecondaryButton></PageHero><section className="bg-white py-20 sm:py-28"><Container><SectionHeading eyebrow="Latest thinking" title={<>Learn. Improve. <span className="text-brand-red">Grow with clarity.</span></>}/><div className="mt-8 flex flex-wrap gap-2">{["All","Branding","Website Tips","Social Media","Digital Marketing","Business Growth","AI Tools","Design Education"].map(x=><Tag key={x}>{x}</Tag>)}</div><div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{articles.map((a,i)=><Reveal key={a.slug} delay={(i%3)*80}><ArticleCard article={a}/></Reveal>)}</div></Container></section><FinalCta/></>}

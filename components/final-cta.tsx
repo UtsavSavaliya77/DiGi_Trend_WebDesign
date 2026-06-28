@@ -1,0 +1,6 @@
+import { Container, PrimaryButton, SecondaryButton } from "@/components/ui";
+import { siteConfig } from "@/data/site";
+
+export function FinalCta() {
+  return <section className="bg-white py-20 sm:py-24"><Container><div className="relative overflow-hidden rounded-[38px] bg-brand-navy px-6 py-14 text-center text-white sm:px-10 sm:py-20"><div className="hero-grid absolute inset-0 opacity-30"/><div className="absolute -left-24 top-0 size-72 rounded-full bg-blue-500/20 blur-[90px]"/><div className="absolute -right-20 bottom-0 size-72 rounded-full bg-brand-red/25 blur-[90px]"/><div className="relative mx-auto max-w-3xl"><p className="text-xs font-black uppercase tracking-[.22em] text-red-300">Ready for the next level?</p><h2 className="font-heading mt-5 text-balance text-4xl font-black leading-[1] tracking-[-.055em] sm:text-6xl">Ready to turn your business into a brand?</h2><p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/65">Let’s build the identity, website and digital strategy that makes your business look professional and grow faster.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><PrimaryButton href="/book-demo">Book Free Consultation</PrimaryButton><SecondaryButton href={siteConfig.whatsapp} inverse>WhatsApp Now</SecondaryButton></div></div></div></Container></section>;
+}

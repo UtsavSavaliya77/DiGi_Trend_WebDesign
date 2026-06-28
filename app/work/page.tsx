@@ -1,0 +1,8 @@
+"use client";
+import { useState } from "react";
+import { ProjectCard } from "@/components/cards";
+import { FinalCta } from "@/components/final-cta";
+import { Container, PageHero, PrimaryButton, SecondaryButton, SectionHeading } from "@/components/ui";
+import { projects } from "@/data/site";
+const filters=["All","Branding","Website","Social Media","CGI","UI/UX","Software"];
+export default function WorkPage(){const [filter,setFilter]=useState("All");const shown=filter==="All"?projects:projects.filter(p=>p.category===filter||p.services.includes(filter));return <><PageHero eyebrow="Portfolio" title={<>Our work speaks through design, strategy and <span className="text-red-300">results.</span></>} description="Explore selected brand identities, websites, social systems, CGI work and software experiences."><PrimaryButton href="/book-demo">Start a Project</PrimaryButton><SecondaryButton href="/case-studies" inverse>View Case Studies</SecondaryButton></PageHero><section className="bg-white py-20 sm:py-28"><Container><SectionHeading eyebrow="Selected projects" title={<>Built to look distinct. <span className="text-brand-red">Designed to work.</span></>}/><div className="mt-9 flex flex-wrap gap-2">{filters.map(x=><button key={x} onClick={()=>setFilter(x)} className={`rounded-full border px-4 py-2 text-xs font-bold transition ${filter===x?"border-brand-red bg-brand-red text-white":"border-slate-200 bg-white text-slate-600 hover:border-slate-300"}`}>{x}</button>)}</div><div className="mt-12 grid gap-x-7 gap-y-14 lg:grid-cols-2">{shown.map(p=><ProjectCard key={p.slug} project={p}/>)}</div></Container></section><FinalCta/></>}
